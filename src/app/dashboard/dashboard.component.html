@@ -26,20 +26,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Picture</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Picture</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let movie of data | paginate: { id: 'listing_pagination', itemsPerPage: 4, currentPage: page, totalItems: totalRecord}">
-      <td>{{movie.name}}</td>
-      <td>{{movie.description}}</td>
       <td>
         <img src="../../assets/resources/{{movie.picture}}" >
       </td>
-
-
+      <td>{{movie.name}}</td>
+      <td>{{movie.description}}</td>
     </tr>
 
   </tbody>
