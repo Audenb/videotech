@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<body>
+<div class="title">Welcome</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <form action="" method="get" class="form-example">
+        <div class="search">
+          <label for="film">Rechercher un film</label>
+          <input type="text" name="film" id="film" [(ngModel)]="movieName" (ngModelChange)="findMovieByName(movieName)">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--<div class="pagination">-->
+<!--  <a href="#">&laquo;</a>-->
+<!--  <a href="#">1</a>-->
+<!--  <a href="#">2</a>-->
+<!--  <a href="#">3</a>-->
+<!--  <a href="#">4</a>-->
+<!--  <a href="#">5</a>-->
+<!--  <a href="#">6</a>-->
+<!--  <a href="#">&raquo;</a>-->
+<!--</div>-->
+
+
+<!--<div class="container">-->
+<!--  <div class="list">-->
+<!--    <div *ngFor="let movie of movies">-->
+<!--&lt;!&ndash;      <div class="card-header">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h4 class="my-0 font-weight-normal">{{}} {{}}</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+
+<!--        <ts>-->
+<!--          <img src="../../assets/resources/{{movie.name}}.jpeg" class="card-img-top" alt="">-->
+<!--          <td>Name : {{movie.name}}</td>-->
+<!--          <td>Type : {{movie.type}}</td>-->
+<!--          <td>Description : {{movie.description}}</td>-->
+<!--        </ts>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Picture</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of data | paginate: { id: 'listing_pagination', itemsPerPage: 15, currentPage: page, totalItems: totalRecord}">
+      <td>{{movie.name}}</td>
+      <td>{{movie.type}}</td>
+      <td>{{movie.description}}</td>
+      <td>
+        <img src="../../assets/resources/{{movie.name}}.jpeg">
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+<div>
+  <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+
+</body>
+</html>
+
