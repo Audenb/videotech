@@ -1,3 +1,7 @@
+export type Hydra = {
+  movies: [Movies]
+};
+
 export class Movies {
 //  @id: number;
 //  @type: string;
